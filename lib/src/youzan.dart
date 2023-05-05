@@ -21,10 +21,10 @@ class YouzanEventHandlers {
 
   YouzanCallBackListener? youzanSecurityCheckSucceedCallBackListener;
   YouzanCallBackListener? youzanSecurityCheckFailureCallBackListener;
-  YouzanCallBackListener? YouzanAndroidLoginCallBackListener;
-  YouzanCallBackListener? YouzanAndroidPayFinishCallBackListener;
-  YouzanCallBackListener? YouzanAndroidSaveAddressCallBackListener;
-  YouzanCallBackListener? YouzanAndroidOnDestoryCallBackListener;
+  YouzanCallBackListener? youzanAndroidLoginCallBackListener;
+  YouzanCallBackListener? youzanAndroidPayFinishCallBackListener;
+  YouzanCallBackListener? youzanAndroidSaveAddressCallBackListener;
+  YouzanCallBackListener? youzanAndroidOnDestoryCallBackListener;
   YouzanCallBackListener? youzanAndroidRouterChageCallBackListener;
 }
 
@@ -52,22 +52,22 @@ class Youzan {
 
   /// 有赞安卓登录回调
   addYouzanAndroidLoginCallBackListener(YouzanCallBackListener callback) {
-    _eventHanders.YouzanAndroidLoginCallBackListener = callback;
+    _eventHanders.youzanAndroidLoginCallBackListener = callback;
   }
 
   /// 有赞安卓支付完成回调
   addYouzanAndroidPayFinishCallBackListener(YouzanCallBackListener callback) {
-    _eventHanders.YouzanAndroidPayFinishCallBackListener = callback;
+    _eventHanders.youzanAndroidPayFinishCallBackListener = callback;
   }
 
   /// 有赞安卓保存地址回调
   addYouzanAndroidSaveAddressCallBackListener(YouzanCallBackListener callback) {
-    _eventHanders.YouzanAndroidSaveAddressCallBackListener = callback;
+    _eventHanders.youzanAndroidSaveAddressCallBackListener = callback;
   }
 
   /// 有赞安卓正在被销毁地址回调
   addYouzanAndroidOnDestroyCallBackListener(YouzanCallBackListener callback) {
-    _eventHanders.YouzanAndroidOnDestoryCallBackListener = callback;
+    _eventHanders.youzanAndroidOnDestoryCallBackListener = callback;
   }
 
   addYouzanAndroidRouterChangeCallBackListener(YouzanCallBackListener callback){
@@ -114,6 +114,7 @@ class Youzan {
       "evaluateJavascript": evaluateJavascript,
       "webTitle": webTitle
     });
+    return result;
   }
 
   /// App用户登出，清除token及cookie等
@@ -133,7 +134,7 @@ class Youzan {
   }
 
   Future<void> _handlerMethod(MethodCall call) async {
-    print("handleMethod method&arg = ${call.method} + ${call.arguments}");
+    // print("handleMethod method&arg = ${call.method} + ${call.arguments}");
 
     switch (call.method) {
       case 'youzanSecurityCheckSucceed':
@@ -154,33 +155,33 @@ class Youzan {
         break;
       case 'login':
         {
-          if (_eventHanders.YouzanAndroidLoginCallBackListener !=
+          if (_eventHanders.youzanAndroidLoginCallBackListener !=
               null) {
-            _eventHanders.YouzanAndroidLoginCallBackListener!(call.arguments);
+            _eventHanders.youzanAndroidLoginCallBackListener!(call.arguments);
           }
         }
         break;
       case 'paymentFinished':
         {
-          if (_eventHanders.YouzanAndroidPayFinishCallBackListener !=
+          if (_eventHanders.youzanAndroidPayFinishCallBackListener !=
               null) {
-            _eventHanders.YouzanAndroidPayFinishCallBackListener!(call.arguments);
+            _eventHanders.youzanAndroidPayFinishCallBackListener!(call.arguments);
           }
         }
         break;
       case 'saveAddress':
         {
-          if (_eventHanders.YouzanAndroidSaveAddressCallBackListener !=
+          if (_eventHanders.youzanAndroidSaveAddressCallBackListener !=
               null) {
-            _eventHanders.YouzanAndroidSaveAddressCallBackListener!('save');
+            _eventHanders.youzanAndroidSaveAddressCallBackListener!('save');
           }
         }
         break;
       case 'onDestroy':
         {
-          if (_eventHanders.YouzanAndroidOnDestoryCallBackListener !=
+          if (_eventHanders.youzanAndroidOnDestoryCallBackListener !=
               null) {
-            _eventHanders.YouzanAndroidOnDestoryCallBackListener!(call.arguments);
+            _eventHanders.youzanAndroidOnDestoryCallBackListener!(call.arguments);
           }
         }
         break;

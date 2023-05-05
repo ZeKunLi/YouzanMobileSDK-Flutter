@@ -17,11 +17,10 @@ class YouzanWebView extends StatefulWidget {
   final YouzanWebViewCreatedCallback? onCreated;
   final String url;
 
-  YouzanWebView({
-    Key? key,
+  const YouzanWebView({Key? key,
     required this.url,
     required this.onCreated,
-  });
+  }) : super(key: key);
 
   @override
   State<YouzanWebView> createState() => _YouzanWebViewState();
