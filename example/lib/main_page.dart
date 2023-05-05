@@ -18,11 +18,10 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   late YouzanWebViewController webViewController;
-  // https://cashier.youzan.com/pay/wsctrade_buy?kdt_id=&book_key=2021120410015561aacc13acf7930927
+  // 跳转 URL
   String jumpUrl =
-      // "https://h5.youzan.com/v2/showcase/homepage?alias=xUTE3DNiZp";
      "https://shop101622017.youzan.com/wsctrade/order/address/list?switchable=false&kdt_id=101429849";
-  // "https://shop101619445.m.youzan.com/v2/showcase/homepage?kdt_id=101427277";
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,8 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       body: Center(
-          child: RaisedButton(
+          child: TextButton(
+
             onPressed: () {
               Navigator.push(
                 context,
